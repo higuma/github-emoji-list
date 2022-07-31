@@ -17,7 +17,7 @@ def render_markdown(json, date)
     f.puts "# GitHub Emoji List\n"
     f.puts "(retrieved #{date})\n"
     for i in (0...N_COL)
-      f.print "| name "
+      f.print "| \:name\: "
     end
     f.puts "|"
     for i in (0...N_COL)
@@ -29,20 +29,17 @@ def render_markdown(json, date)
     end
     f.puts "|"
 
-    markup = ""
-    icons = ""
-    json.keys.sort.each_with_index do |key, index|
-      if index != 0 && index % N_COL == 0 then
-        f.puts "#{markup}|"
-        f.puts "#{icons}|"
-        markup = ""
-        icons = ""
+    names = json.keys.sort
+    until names.empty?
+      markup = ""
+      icons = ""
+      for name in names.shift(N_COL)
+        markup += "| `:#{name}:` "
+        icons += "| :#{name}: \\| ![#{name}](#{json[name]}) "
       end
-      markup += "| `#{key}` "
-      icons += "| :#{key}: \\| ![#{key}](#{json[key]}) "
+      f.puts "#{markup}|"
+      f.puts "#{icons}|"
     end
-    f.puts "#{markup}|"
-    f.puts "#{icons}|"
   end
 end
 
