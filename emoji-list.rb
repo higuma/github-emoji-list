@@ -29,16 +29,11 @@ def render_markdown(json, date)
     end
     f.puts "|"
 
-    names = json.keys.sort
-    until names.empty?
-      markup = ""
-      icons = ""
-      for name in names.shift(N_COL)
-        markup += "| `#{name}` "
-        icons += "| :#{name}: \\| ![#{name}](#{json[name]}) "
-      end
-      f.puts "#{markup}|"
-      f.puts "#{icons}|"
+    items = json.keys.sort
+    until items.empty?
+      names = items.shift(N_COL)
+      f.puts "#{names.inject("") {|row, name| row + "| `#{name}` " }}|"
+      f.puts "#{names.inject("") {|row, name| row + "| :#{name}: \\| ![#{name}](#{json[name]}) " }}|"
     end
   end
 end
