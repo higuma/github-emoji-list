@@ -17,7 +17,7 @@ def render_markdown(json, date)
     f.puts "# GitHub Emoji List\n"
     f.puts "(retrieved #{date})\n"
     for i in (0...N_COL)
-      f.print "| \:name\: "
+      f.print "| name "
     end
     f.puts "|"
     for i in (0...N_COL)
@@ -34,7 +34,7 @@ def render_markdown(json, date)
       markup = ""
       icons = ""
       for name in names.shift(N_COL)
-        markup += "| `:#{name}:` "
+        markup += "| `#{name}` "
         icons += "| :#{name}: \\| ![#{name}](#{json[name]}) "
       end
       f.puts "#{markup}|"
