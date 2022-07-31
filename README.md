@@ -1,7 +1,9 @@
 # GitHub Emoji List
+
 (retrieved 2022-07-31)
+
 | name | name | name |
-| :---: | :---: | :---: |
+| :-: | :-: | :-: |
 | **small \| LARGE** | **small \| LARGE** | **small \| LARGE** |
 | `+1` | `-1` | `100` |
 | :+1: \| ![+1](https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) | :-1: \| ![-1](https://github.githubassets.com/images/icons/emoji/unicode/1f44e.png?v8) | :100: \| ![100](https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png?v8) |

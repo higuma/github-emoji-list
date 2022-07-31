@@ -14,26 +14,18 @@ end
 
 def render_markdown(json, date)
   open 'README.md', 'w' do |f|
-    f.puts "# GitHub Emoji List\n"
-    f.puts "(retrieved #{date})\n"
-    for i in (0...N_COL)
-      f.print "| name "
-    end
-    f.puts "|"
-    for i in (0...N_COL)
-      f.print "| :---: "
-    end
-    f.puts "|"
-    for i in (0...N_COL)
-      f.print "| **small \\| LARGE** "
-    end
-    f.puts "|"
-
-    items = json.keys.sort
-    until items.empty?
-      names = items.shift(N_COL)
-      f.puts "#{names.inject("") {|row, name| row + "| `#{name}` " }}|"
-      f.puts "#{names.inject("") {|row, name| row + "| :#{name}: \\| ![#{name}](#{json[name]}) " }}|"
+    f.puts "# GitHub Emoji List"
+    f.puts
+    f.puts "(retrieved #{date})"
+    f.puts
+    f.puts((0...N_COL).inject("|") {|row, _| row + " name |" })
+    f.puts((0...N_COL).inject("|") {|row, _| row + " :-: |" })
+    f.puts((0...N_COL).inject("|") {|row, _| row + " **small \\| LARGE** |" })
+    all_names = json.keys.sort
+    until all_names.empty?
+      names = all_names.shift(N_COL)
+      f.puts(names.inject("|") {|row, name| row + " `#{name}` |" })
+      f.puts(names.inject("|") {|row, name| row + " :#{name}: \\| ![#{name}](#{json[name]}) |" })
     end
   end
 end
