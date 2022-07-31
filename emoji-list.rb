@@ -5,7 +5,7 @@ N_COL = 3
 JSON_FILE = 'emoji-list.json'
 
 def get_emoji_list(token)
-  unless system "curl -H 'Accept: application/vnd.github+json' -H 'Authorization: token #{token}' https://api.github.com/emojis > #{JSON_FILE}"
+  unless system "curl -H \"Accept: application/vnd.github+json\" -H \"Authorization: token #{token}\" https://api.github.com/emojis > #{JSON_FILE}"
     STDERR.puts 'GitHub API Error'
     exit($?)
   end
