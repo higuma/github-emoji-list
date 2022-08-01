@@ -1,6 +1,6 @@
 # GitHub Emoji List
 
-(retrieved 2022-07-31)
+(retrieved 2022-08-01)
 
 | name | name | name |
 | :-: | :-: | :-: |

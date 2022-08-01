@@ -4,6 +4,8 @@ require 'json'
 N_COL = 3
 JSON_FILE = 'emoji-list.json'
 
+# Retrieve Emoji list using GitHub REST API
+# (See: https://docs.github.com/en/rest/emojis)
 def get_emoji_list(token)
   unless system "curl -H \"Accept: application/vnd.github+json\" -H \"Authorization: token #{token}\" https://api.github.com/emojis > #{JSON_FILE}"
     STDERR.puts 'GitHub API Error'
@@ -12,8 +14,9 @@ def get_emoji_list(token)
   File.read(JSON_FILE)
 end
 
+# Render README.md
 def render_markdown(json, date)
-  open 'README.md', 'w' do |f|
+  open('README.md', 'w') do |f|
     f.puts "# GitHub Emoji List"
     f.puts
     f.puts "(retrieved #{date})"
