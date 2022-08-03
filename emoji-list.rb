@@ -28,7 +28,10 @@ def render_markdown(json, date)
     until all_names.empty?
       names = all_names.shift(N_COL)
       f.puts(names.inject("|") {|row, name| row + " `#{name}` |" })
-      f.puts(names.inject("|") {|row, name| row + " :#{name}: \\| ![#{name}](#{json[name]}) |" })
+      f.puts(names.inject("|") do |row, name|
+        url = json[name]
+        row + " :#{name}: \\| [![#{name}](#{url})](#{url}) |"
+      end)
     end
   end
 end
