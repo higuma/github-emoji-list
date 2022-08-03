@@ -1,3 +1,7 @@
+#!/usr/bin/env ruby
+
+# Retrieve Emoji list from GitHub and render README.md
+
 require 'date'
 require 'json'
 
@@ -7,9 +11,9 @@ JSON_FILE = 'emoji-list.json'
 # Retrieve Emoji list using GitHub REST API
 # (See: https://docs.github.com/en/rest/emojis)
 def get_emoji_list(token)
-  unless system "curl -H \"Accept: application/vnd.github+json\" -H \"Authorization: token #{token}\" https://api.github.com/emojis > #{JSON_FILE}"
+  unless system %Q(curl -H "Accept: application/vnd.github+json" -H "Authorization: token #{token}" https://api.github.com/emojis > #{JSON_FILE})
     STDERR.puts 'GitHub API Error'
-    exit($?)
+    exit $?
   end
   File.read(JSON_FILE)
 end
@@ -21,17 +25,17 @@ def render_markdown(json, date)
     f.puts
     f.puts "(retrieved #{date})"
     f.puts
-    f.puts((0...N_COL).inject("|") {|row, _| row + " name |" })
-    f.puts((0...N_COL).inject("|") {|row, _| row + " :-: |" })
-    f.puts((0...N_COL).inject("|") {|row, _| row + " **small \\| LARGE** |" })
+    f.puts (0...N_COL).inject("|") {|row, _| row + " name |" }
+    f.puts (0...N_COL).inject("|") {|row, _| row + " :-: |" }
+    f.puts (0...N_COL).inject("|") {|row, _| row + " **small \\| LARGE** |" }
     all_names = json.keys.sort
     until all_names.empty?
       names = all_names.shift(N_COL)
-      f.puts(names.inject("|") {|row, name| row + " `#{name}` |" })
-      f.puts(names.inject("|") do |row, name|
+      f.puts names.inject("|") {|row, name| row + " `#{name}` |" }
+      f.puts names.inject("|") {|row, name|
         url = json[name]
         row + " :#{name}: \\| [![#{name}](#{url})](#{url}) |"
-      end)
+      }
     end
   end
 end
@@ -39,6 +43,6 @@ end
 # main
 STDOUT.print "GitHub token: "
 STDOUT.flush
-token = gets.chomp
-json_str = get_emoji_list(token)
-render_markdown(JSON[json_str], Date.today)
+token = STDIN.gets.chomp
+json_str = get_emoji_list token
+render_markdown JSON[json_str], Date.today
