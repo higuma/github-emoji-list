@@ -25,16 +25,14 @@ def render_markdown(json, date)
     f.puts
     f.puts "(retrieved #{date})"
     f.puts
-    f.puts (0...N_COL).inject("|") {|row, _| row + " name |" }
+    f.puts (0...N_COL).inject("|") {|row, _| row + " name<br>small \\| large |" }
     f.puts (0...N_COL).inject("|") {|row, _| row + " :-: |" }
-    f.puts (0...N_COL).inject("|") {|row, _| row + " **small \\| LARGE** |" }
     all_names = json.keys.sort
     until all_names.empty?
       names = all_names.shift(N_COL)
-      f.puts names.inject("|") {|row, name| row + " `#{name}` |" }
       f.puts names.inject("|") {|row, name|
         url = json[name]
-        row + " :#{name}: \\| [![#{name}](#{url})](#{url}) |"
+        row + " `:#{name}:`<br>:#{name}: \\| [![#{name}](#{url})](#{url}) |"
       }
     end
   end
