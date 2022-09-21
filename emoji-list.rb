@@ -21,18 +21,18 @@ end
 # Render README.md
 def render_markdown(json, date)
   open('README.md', 'w') do |f|
+    all_names = json.keys.sort
     f.puts "# GitHub Emoji List"
     f.puts
-    f.puts "(retrieved #{date})"
+    f.puts "(retrieved #{date}, #{all_names.size} characters)"
     f.puts
-    f.puts (0...N_COL).inject("|") {|row, _| row + " name<br>small \\| large |" }
+    f.puts (0...N_COL).inject("|") {|row, _| row + " `name`<br>small large |" }
     f.puts (0...N_COL).inject("|") {|row, _| row + " :-: |" }
-    all_names = json.keys.sort
     until all_names.empty?
       names = all_names.shift(N_COL)
       f.puts names.inject("|") {|row, name|
         url = json[name]
-        row + " `:#{name}:`<br>:#{name}: \\| [![#{name}](#{url})](#{url}) |"
+        row + " `:#{name}:`<br>:#{name}: [![#{name}](#{url})](#{url}) |"
       }
     end
   end
