@@ -26,7 +26,7 @@ def render_markdown(json, date)
     f.puts
     f.puts "(retrieved #{date}, #{all_names.size} characters)"
     f.puts
-    f.puts (0...N_COL).inject("|") {|row, _| row + " `name`<br>small large |" }
+    f.puts (0...N_COL).inject("|") {|row, _| row + " `:name:`<br>emoji PNG |" }
     f.puts (0...N_COL).inject("|") {|row, _| row + " :-: |" }
     until all_names.empty?
       names = all_names.shift(N_COL)

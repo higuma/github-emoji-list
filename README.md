@@ -2,7 +2,7 @@
 
 (retrieved 2022-09-21, 1874 characters)
 
-| `name`<br>small large | `name`<br>small large | `name`<br>small large |
+| `:name:`<br>emoji PNG | `:name:`<br>emoji PNG | `:name:`<br>emoji PNG |
 | :-: | :-: | :-: |
 | `:+1:`<br>:+1: [![+1](https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) | `:-1:`<br>:-1: [![-1](https://github.githubassets.com/images/icons/emoji/unicode/1f44e.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f44e.png?v8) | `:100:`<br>:100: [![100](https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png?v8) |
 | `:1234:`<br>:1234: [![1234](https://github.githubassets.com/images/icons/emoji/unicode/1f522.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f522.png?v8) | `:1st_place_medal:`<br>:1st_place_medal: [![1st_place_medal](https://github.githubassets.com/images/icons/emoji/unicode/1f947.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f947.png?v8) | `:2nd_place_medal:`<br>:2nd_place_medal: [![2nd_place_medal](https://github.githubassets.com/images/icons/emoji/unicode/1f948.png?v8)](https://github.githubassets.com/images/icons/emoji/unicode/1f948.png?v8) |
