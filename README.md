@@ -1,6 +1,6 @@
 # GitHub Emoji List
 
-(retrieved 2022-09-21, 1874 characters)
+(retrieved 2022-10-12, 1874 characters)
 
 | `:name:`<br>emoji PNG | `:name:`<br>emoji PNG | `:name:`<br>emoji PNG |
 | :-: | :-: | :-: |
